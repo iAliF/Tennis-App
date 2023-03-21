@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Tennis</string>
     <string name="add">add</string>
+    <string name="player_added">New player added!</string>
 </resources>
