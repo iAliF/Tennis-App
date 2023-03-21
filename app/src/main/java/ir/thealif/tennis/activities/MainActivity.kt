@@ -1,4 +1,4 @@
-package ir.thealif.tennis
+package ir.thealif.tennis.activities
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -7,13 +7,16 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import ir.thealif.tennis.R
+import ir.thealif.tennis.adapters.MyRecyclerViewAdapter
 import ir.thealif.tennis.databinding.ActivityMainBinding
+import ir.thealif.tennis.models.PlayerModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var myAdapter: MyRecyclerViewAdapter
-    private var dataModelList: ArrayList<DataModel> = ArrayList()
+    private var playersList: ArrayList<PlayerModel> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViews() {
-        myAdapter = MyRecyclerViewAdapter(dataModelList)
+        myAdapter = MyRecyclerViewAdapter(playersList)
         binding.recyclerViewAdapter = myAdapter
         binding.fabAddPlayer.setOnClickListener {
             showAddDialog()
@@ -39,8 +42,8 @@ class MainActivity : AppCompatActivity() {
             .setView(input)
             .setPositiveButton("Add") { _, _ ->
                 if (!TextUtils.isEmpty(input.text)) {
-                    dataModelList.add(DataModel(input.text.toString()))
-                    myAdapter.notifyItemInserted(dataModelList.size)
+                    playersList.add(PlayerModel(input.text.toString()))
+                    myAdapter.notifyItemInserted(playersList.size)
                     Toast.makeText(this, R.string.player_added, Toast.LENGTH_SHORT).show()
                 }
             }
@@ -51,8 +54,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadData() {
-        dataModelList.add(DataModel("John"))
-        dataModelList.add(DataModel("Jackson"))
-        dataModelList.add(DataModel("Brian"))
+        playersList.add(PlayerModel("John"))
+        playersList.add(PlayerModel("Jackson"))
+        playersList.add(PlayerModel("Brian"))
     }
 }

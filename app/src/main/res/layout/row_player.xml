@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="ir.thealif.tennis.DataModel" />
+            type="ir.thealif.tennis.models.PlayerModel" />
     </data>
 
     <androidx.cardview.widget.CardView

@@ -1,12 +1,14 @@
-package ir.thealif.tennis
+package ir.thealif.tennis.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import ir.thealif.tennis.R
 import ir.thealif.tennis.databinding.RowPlayerBinding
+import ir.thealif.tennis.models.PlayerModel
 
-class MyRecyclerViewAdapter(private val dataModelList: ArrayList<DataModel>) :
+class MyRecyclerViewAdapter(private val playersList: ArrayList<PlayerModel>) :
     RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder>() {
 
 
@@ -21,18 +23,18 @@ class MyRecyclerViewAdapter(private val dataModelList: ArrayList<DataModel>) :
     }
 
     override fun getItemCount(): Int {
-        return dataModelList.size
+        return playersList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val dataModel: DataModel = dataModelList[position]
-        holder.bind(dataModel)
+        val playerModel: PlayerModel = playersList[position]
+        holder.bind(playerModel)
     }
 
     class ViewHolder(private val playerBinding: RowPlayerBinding) :
         RecyclerView.ViewHolder(playerBinding.root) {
-        fun bind(dataModel: DataModel) {
-            playerBinding.model = dataModel
+        fun bind(playerModel: PlayerModel) {
+            playerBinding.model = playerModel
             playerBinding.executePendingBindings()
         }
     }
