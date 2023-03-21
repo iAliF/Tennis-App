@@ -10,4 +10,5 @@
 
     <string name="avatar">Avatar</string>
     <string name="more">More</string>
+    <string name="no_player">There is no player</string>
 </resources>

@@ -6,8 +6,8 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         registerService()
+        checkPlayersCount()
     }
 
     override fun onStop() {
@@ -52,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     private fun registerService() {
         broadcastReceiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {
-                Toast.makeText(context, "Received | ${playersList.size}", Toast.LENGTH_SHORT).show()
+                checkPlayersCount()
             }
         }
 
@@ -60,6 +61,10 @@ class MainActivity : AppCompatActivity() {
             broadcastReceiver,
             IntentFilter(MyRecyclerViewAdapter.ACTION_DATA_SIZE_CHANGED)
         )
+    }
+
+    private fun checkPlayersCount() {
+        binding.tvNoPlayer.visibility = if (playersList.size > 0) View.GONE else View.VISIBLE
     }
 
 
