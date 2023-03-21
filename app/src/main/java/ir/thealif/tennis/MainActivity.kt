@@ -1,6 +1,7 @@
 package ir.thealif.tennis
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -36,8 +37,10 @@ class MainActivity : AppCompatActivity() {
             .setTitle("Add new player")
             .setView(input)
             .setPositiveButton("Add") { _, _ ->
-                dataModelList.add(DataModel(input.text.toString()))
-                myAdapter.notifyItemInserted(dataModelList.size)
+                if (!TextUtils.isEmpty(input.text)) {
+                    dataModelList.add(DataModel(input.text.toString()))
+                    myAdapter.notifyItemInserted(dataModelList.size)
+                }
             }
             .setNegativeButton("Cancel") { dialog, _ ->
                 dialog.cancel()
