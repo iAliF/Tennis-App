@@ -1,8 +1,13 @@
 package ir.thealif.tennis.activities
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -16,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var myAdapter: MyRecyclerViewAdapter
     private var playersList: ArrayList<PlayerModel> = ArrayList()
+    private lateinit var broadcastReceiver: BroadcastReceiver
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +31,16 @@ class MainActivity : AppCompatActivity() {
         setupViews()
     }
 
+    override fun onStart() {
+        super.onStart()
+        registerService()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        unregisterReceiver(broadcastReceiver)
+    }
+
     private fun setupViews() {
         myAdapter = MyRecyclerViewAdapter(this, playersList)
         binding.recyclerViewAdapter = myAdapter
@@ -32,6 +48,20 @@ class MainActivity : AppCompatActivity() {
             showAddDialog()
         }
     }
+
+    private fun registerService() {
+        broadcastReceiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                Toast.makeText(context, "Received | ${playersList.size}", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        registerReceiver(
+            broadcastReceiver,
+            IntentFilter(MyRecyclerViewAdapter.ACTION_DATA_SIZE_CHANGED)
+        )
+    }
+
 
     private fun showAddDialog() {
         val input = EditText(this)
