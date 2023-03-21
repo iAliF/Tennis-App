@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import ir.thealif.tennis.databinding.ItemPlayerBinding
+import ir.thealif.tennis.databinding.RowPlayerBinding
 
 class MyRecyclerViewAdapter(
     private val context: Context,
@@ -14,9 +14,9 @@ class MyRecyclerViewAdapter(
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding: ItemPlayerBinding = DataBindingUtil.inflate(
+        val binding: RowPlayerBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            R.layout.item_player,
+            R.layout.row_player,
             parent,
             false
         )
@@ -32,9 +32,9 @@ class MyRecyclerViewAdapter(
         holder.bind(dataModel)
     }
 
-    class ViewHolder(private val playerBinding: ItemPlayerBinding) :
+    class ViewHolder(private val playerBinding: RowPlayerBinding) :
         RecyclerView.ViewHolder(playerBinding.root) {
-        public fun bind(dataModel: DataModel) {
+        fun bind(dataModel: DataModel) {
             playerBinding.model = dataModel
             playerBinding.executePendingBindings()
         }

@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="@dimen/standardMargin"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_player" />
+            tools:listitem="@layout/row_player" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabAddPlayer"
