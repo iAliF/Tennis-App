@@ -2,4 +2,6 @@
     <string name="app_name">Tennis</string>
     <string name="add">add</string>
     <string name="player_added">New player added!</string>
+    <string name="avatar">Avatar</string>
+    <string name="more">More</string>
 </resources>

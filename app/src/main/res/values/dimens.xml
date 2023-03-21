@@ -6,6 +6,7 @@
     <dimen name="playerCardMargin">4dp</dimen>
     <dimen name="playerNamePadding">4dp</dimen>
     <dimen name="playerCardElevation">4dp</dimen>
+    <dimen name="playerImageSize">64dp</dimen>
 
     <dimen name="fabMargin">8dp</dimen>
 </resources>
