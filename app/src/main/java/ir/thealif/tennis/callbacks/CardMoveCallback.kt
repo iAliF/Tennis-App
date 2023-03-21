@@ -1,7 +1,8 @@
-package ir.thealif.tennis.adapters
+package ir.thealif.tennis.callbacks
 
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import ir.thealif.tennis.adapters.MyRecyclerViewAdapter
 import ir.thealif.tennis.interfaces.CardTouchHelperContract
 
 class CardMoveCallback(private val mAdapter: CardTouchHelperContract) : ItemTouchHelper.Callback() {

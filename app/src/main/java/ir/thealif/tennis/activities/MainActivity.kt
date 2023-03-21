@@ -16,8 +16,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.ItemTouchHelper
 import ir.thealif.tennis.R
-import ir.thealif.tennis.adapters.CardMoveCallback
 import ir.thealif.tennis.adapters.MyRecyclerViewAdapter
+import ir.thealif.tennis.callbacks.CardMoveCallback
 import ir.thealif.tennis.databinding.ActivityMainBinding
 import ir.thealif.tennis.models.PlayerModel
 
