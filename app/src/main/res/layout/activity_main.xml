@@ -24,7 +24,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="@dimen/standardMargin"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_player" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="standardMargin">8dp</dimen>
+
+    <dimen name="playerCardRadius">8dp</dimen>
+    <dimen name="playerCardMargin">4dp</dimen>
+    <dimen name="playerNamePadding">4dp</dimen>
+    <dimen name="playerCardElevation">4dp</dimen>
+</resources>
