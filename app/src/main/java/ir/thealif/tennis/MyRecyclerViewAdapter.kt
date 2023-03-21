@@ -1,16 +1,13 @@
 package ir.thealif.tennis
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import ir.thealif.tennis.databinding.RowPlayerBinding
 
-class MyRecyclerViewAdapter(
-    private val context: Context,
-    private val dataModelList: ArrayList<DataModel>
-) : RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder>() {
+class MyRecyclerViewAdapter(private val dataModelList: ArrayList<DataModel>) :
+    RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
