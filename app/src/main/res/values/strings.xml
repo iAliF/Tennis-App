@@ -4,4 +4,6 @@
     <string name="player_added">New player added!</string>
     <string name="avatar">Avatar</string>
     <string name="more">More</string>
+    <string name="remove">Remove</string>
+    <string name="player_removed">Player Removed</string>
 </resources>

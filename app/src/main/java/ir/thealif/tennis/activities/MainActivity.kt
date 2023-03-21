@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViews() {
-        myAdapter = MyRecyclerViewAdapter(playersList)
+        myAdapter = MyRecyclerViewAdapter(this, playersList)
         binding.recyclerViewAdapter = myAdapter
         binding.fabAddPlayer.setOnClickListener {
             showAddDialog()
