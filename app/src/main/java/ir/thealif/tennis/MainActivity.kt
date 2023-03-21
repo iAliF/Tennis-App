@@ -51,8 +51,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadData() {
-        dataModelList.add(0, DataModel("John"))
-        dataModelList.add(0, DataModel("Jackson"))
-        dataModelList.add(0, DataModel("Brian"))
+        dataModelList.add(DataModel("John"))
+        dataModelList.add(DataModel("Jackson"))
+        dataModelList.add(DataModel("Brian"))
     }
 }
