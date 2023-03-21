@@ -40,14 +40,14 @@ class MainActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle("Add new player")
             .setView(input)
-            .setPositiveButton("Add") { _, _ ->
+            .setPositiveButton(R.string.add) { _, _ ->
                 if (!TextUtils.isEmpty(input.text)) {
                     playersList.add(PlayerModel(input.text.toString()))
                     myAdapter.notifyItemInserted(playersList.size)
                     Toast.makeText(this, R.string.player_added, Toast.LENGTH_SHORT).show()
                 }
             }
-            .setNegativeButton("Cancel") { dialog, _ ->
+            .setNegativeButton(R.string.cancel) { dialog, _ ->
                 dialog.cancel()
             }
             .show()

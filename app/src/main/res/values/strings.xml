@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">Tennis</string>
-    <string name="add">add</string>
+
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="remove">Remove</string>
+
     <string name="player_added">New player added!</string>
+    <string name="player_removed">Player Removed</string>
+
     <string name="avatar">Avatar</string>
     <string name="more">More</string>
-    <string name="remove">Remove</string>
-    <string name="player_removed">Player Removed</string>
 </resources>
