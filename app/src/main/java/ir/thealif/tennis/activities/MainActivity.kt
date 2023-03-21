@@ -3,7 +3,6 @@ package ir.thealif.tennis.activities
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -42,9 +41,7 @@ class MainActivity : AppCompatActivity() {
             .setView(input)
             .setPositiveButton(R.string.add) { _, _ ->
                 if (!TextUtils.isEmpty(input.text)) {
-                    playersList.add(PlayerModel(input.text.toString()))
-                    myAdapter.notifyItemInserted(playersList.size)
-                    Toast.makeText(this, R.string.player_added, Toast.LENGTH_SHORT).show()
+                    myAdapter.addPlayer(input.text.toString())
                 }
             }
             .setNegativeButton(R.string.cancel) { dialog, _ ->

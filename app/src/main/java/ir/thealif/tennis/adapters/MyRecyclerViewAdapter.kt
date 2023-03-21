@@ -18,8 +18,6 @@ class MyRecyclerViewAdapter(
     private val playersList: ArrayList<PlayerModel>
 ) :
     RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder>(), CustomEventHandler {
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding: RowPlayerBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
@@ -43,6 +41,12 @@ class MyRecyclerViewAdapter(
         when (item?.itemId) {
             R.id.menuRemovePlayer -> removePlayer(player)
         }
+    }
+
+    fun addPlayer(player: String) {
+        playersList.add(PlayerModel(player))
+        notifyItemInserted(playersList.size)
+        Toast.makeText(context, R.string.player_added, Toast.LENGTH_SHORT).show()
     }
 
     private fun removePlayer(player: PlayerModel?) {
