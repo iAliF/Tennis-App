@@ -11,4 +11,7 @@
     <string name="avatar">Avatar</string>
     <string name="more">More</string>
     <string name="no_player">There is no player</string>
+
+    <string name="github">GitHub</string>
+    <string name="github_repo_url">https://github.com/iAliF/Tennis-App</string>
 </resources>

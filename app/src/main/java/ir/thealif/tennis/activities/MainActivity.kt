@@ -4,8 +4,11 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
@@ -35,6 +38,18 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         registerService()
         checkPlayersCount()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.mainMenuGithub -> openGithubRepo()
+        }
+        return true
     }
 
     override fun onStop() {
@@ -89,5 +104,10 @@ class MainActivity : AppCompatActivity() {
         playersList.add(PlayerModel("John"))
         playersList.add(PlayerModel("Jackson"))
         playersList.add(PlayerModel("Brian"))
+    }
+
+    private fun openGithubRepo() {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.github_repo_url)))
+        startActivity(intent)
     }
 }
