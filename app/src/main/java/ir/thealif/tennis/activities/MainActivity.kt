@@ -14,7 +14,9 @@ import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.ItemTouchHelper
 import ir.thealif.tennis.R
+import ir.thealif.tennis.adapters.CardMoveCallback
 import ir.thealif.tennis.adapters.MyRecyclerViewAdapter
 import ir.thealif.tennis.databinding.ActivityMainBinding
 import ir.thealif.tennis.models.PlayerModel
@@ -59,7 +61,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupViews() {
         myAdapter = MyRecyclerViewAdapter(this, playersList)
+
+        val callback = CardMoveCallback(myAdapter)
+        val touchHelper = ItemTouchHelper(callback)
+        touchHelper.attachToRecyclerView(binding.recyclerView)
+
         binding.recyclerViewAdapter = myAdapter
+
         binding.fabAddPlayer.setOnClickListener {
             showAddDialog()
         }

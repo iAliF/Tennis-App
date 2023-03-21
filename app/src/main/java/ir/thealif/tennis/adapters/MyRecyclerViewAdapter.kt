@@ -11,14 +11,17 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import ir.thealif.tennis.R
 import ir.thealif.tennis.databinding.RowPlayerBinding
+import ir.thealif.tennis.interfaces.CardTouchHelperContract
 import ir.thealif.tennis.interfaces.CustomEventHandler
 import ir.thealif.tennis.models.PlayerModel
+import java.util.*
 
 class MyRecyclerViewAdapter(
     private val context: Context,
     private val playersList: ArrayList<PlayerModel>
 ) :
-    RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder>(), CustomEventHandler {
+    RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder>(), CustomEventHandler,
+    CardTouchHelperContract {
 
     companion object {
         const val ACTION_DATA_SIZE_CHANGED = "ir.thealif.tennis.size_changed"
@@ -95,5 +98,18 @@ class MyRecyclerViewAdapter(
                 }
             }
         }
+    }
+
+    override fun onRowMoved(fromPosition: Int, toPosition: Int) {
+        Collections.swap(playersList, fromPosition, toPosition)
+        notifyItemMoved(fromPosition, toPosition)
+    }
+
+    override fun onRowSelected(viewHolder: ViewHolder) {
+
+    }
+
+    override fun onRowClear(viewHolder: ViewHolder) {
+
     }
 }
