@@ -2,6 +2,7 @@ package ir.thealif.tennis.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.ViewGroup
@@ -86,6 +87,10 @@ class MyRecyclerViewAdapter(
             setupViews()
         }
 
+        fun setBackgroundColor(color: Int) {
+            playerBinding.cardPlayer.setCardBackgroundColor(color)
+        }
+
         private fun setupViews() {
             playerBinding.btnPlayerOptions.setOnClickListener { btn ->
                 val menu = PopupMenu(btn.context, btn)
@@ -106,10 +111,10 @@ class MyRecyclerViewAdapter(
     }
 
     override fun onRowSelected(viewHolder: ViewHolder) {
-
+        viewHolder.setBackgroundColor(Color.GRAY)
     }
 
     override fun onRowClear(viewHolder: ViewHolder) {
-
+        viewHolder.setBackgroundColor(Color.WHITE)
     }
 }
