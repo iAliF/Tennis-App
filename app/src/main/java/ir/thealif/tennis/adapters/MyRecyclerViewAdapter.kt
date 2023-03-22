@@ -3,7 +3,6 @@ package ir.thealif.tennis.adapters
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.ViewGroup
@@ -32,16 +31,14 @@ class MyRecyclerViewAdapter(
     }
 
     fun saveData() {
-        Log.println(Log.DEBUG, "ALIF|DEBUG", playersList.toString())
         fileHelper.saveData(playersList)
     }
 
     fun loadData(first: Boolean = false) {
         playersList.clear()
         playersList.addAll(fileHelper.loadData())
-        Log.println(Log.DEBUG, "ALIF|DEBUG", playersList.toString())
         if (!first) {
-            notifyDataSetChanged()
+            notifyItemRangeChanged(0, itemCount)
         }
     }
 
