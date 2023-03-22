@@ -55,6 +55,7 @@ class MyRecyclerViewAdapter(
 
     fun saveData() {
         fileHelper.saveData(playersList)
+        showToast(R.string.done)
     }
 
     fun loadData(first: Boolean = false) {
@@ -62,6 +63,7 @@ class MyRecyclerViewAdapter(
         playersList.addAll(fileHelper.loadData())
         if (!first) {
             notifyDataSetChanged()
+            showToast(R.string.done)
         }
     }
 
@@ -71,7 +73,7 @@ class MyRecyclerViewAdapter(
         notifyItemInserted(playersList.size)
         sendBroadcast()
 
-        Toast.makeText(context, R.string.player_added, Toast.LENGTH_SHORT).show()
+        showToast(R.string.player_added)
     }
 
     private fun removePlayer(player: PlayerModel?) {
@@ -81,7 +83,11 @@ class MyRecyclerViewAdapter(
         notifyItemRemoved(index)
         sendBroadcast()
 
-        Toast.makeText(context, R.string.player_removed, Toast.LENGTH_SHORT).show()
+        showToast(R.string.player_removed)
+    }
+
+    private fun showToast(messageId: Int) {
+        Toast.makeText(context, messageId, Toast.LENGTH_SHORT).show()
     }
 
     private fun sendBroadcast() {
