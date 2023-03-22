@@ -14,4 +14,6 @@
 
     <string name="github">GitHub</string>
     <string name="github_repo_url">https://github.com/iAliF/Tennis-App</string>
+    <string name="save">Save</string>
+    <string name="load">Load</string>
 </resources>
