@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="optionsBtnColor">#FFFFFF</color>
+
+    <color name="cardBackgroundClear">@color/purple_700</color>
+    <color name="cardBackgroundSelected">@color/purple_500</color>
+</resources>

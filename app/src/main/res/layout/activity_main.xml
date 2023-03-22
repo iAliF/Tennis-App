@@ -32,12 +32,12 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/standardMargin"
             android:adapter="@{recyclerViewAdapter}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/standardMargin"
             app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/row_player" />
 

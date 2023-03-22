@@ -2,7 +2,6 @@ package ir.thealif.tennis.adapters
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.ViewGroup
@@ -136,10 +135,10 @@ class MyRecyclerViewAdapter(
     }
 
     override fun onRowSelected(viewHolder: ViewHolder) {
-        viewHolder.setBackgroundColor(Color.GRAY)
+        viewHolder.setBackgroundColor(context.getColor(R.color.cardBackgroundSelected))
     }
 
     override fun onRowClear(viewHolder: ViewHolder) {
-        viewHolder.setBackgroundColor(Color.WHITE)
+        viewHolder.setBackgroundColor(context.getColor(R.color.cardBackgroundClear))
     }
 }

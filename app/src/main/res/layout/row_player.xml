@@ -14,6 +14,9 @@
         android:id="@+id/cardPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standardMargin"
+        android:layout_marginEnd="@dimen/standardMargin"
+        app:cardBackgroundColor="@color/cardBackgroundClear"
         app:cardCornerRadius="@dimen/playerCardRadius"
         app:cardElevation="@dimen/playerCardElevation"
         app:cardUseCompatPadding="true">
@@ -40,11 +43,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/standardMargin"
                 android:layout_marginTop="@dimen/standardMargin"
-                app:layout_constraintStart_toEndOf="@id/imgPlayer"
-                app:layout_constraintTop_toTopOf="@id/imgPlayer"
+                android:padding="@dimen/playerNamePadding"
                 android:text="@{model.name}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:padding="@dimen/playerNamePadding"
+                app:layout_constraintStart_toEndOf="@id/imgPlayer"
+                app:layout_constraintTop_toTopOf="@id/imgPlayer"
                 tools:text="John" />
 
             <ImageButton
@@ -52,12 +55,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/standardMargin"
+                android:background="@null"
                 android:contentDescription="@string/more"
                 android:src="@drawable/ic_more"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:background="@null"
                 app:tint="@color/optionsBtnColor" />
 
 
