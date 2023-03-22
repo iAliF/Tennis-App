@@ -2,4 +2,4 @@
 
 ## Screenshot
 
-<img src="screenshots/img.png" style="max-height: 500px;">
+![image](screenshots/img.png)
