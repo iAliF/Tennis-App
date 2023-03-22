@@ -38,7 +38,7 @@ class MyRecyclerViewAdapter(
         playersList.clear()
         playersList.addAll(fileHelper.loadData())
         if (!first) {
-            notifyItemRangeChanged(0, itemCount)
+            notifyDataSetChanged()
         }
     }
 
