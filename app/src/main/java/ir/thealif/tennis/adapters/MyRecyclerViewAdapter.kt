@@ -3,6 +3,7 @@ package ir.thealif.tennis.adapters
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import ir.thealif.tennis.R
 import ir.thealif.tennis.databinding.RowPlayerBinding
+import ir.thealif.tennis.helpers.FileHelper
 import ir.thealif.tennis.interfaces.CardTouchHelperContract
 import ir.thealif.tennis.interfaces.CustomEventHandler
 import ir.thealif.tennis.models.PlayerModel
@@ -19,10 +21,29 @@ import java.util.*
 
 class MyRecyclerViewAdapter(
     private val context: Context,
-    private val playersList: ArrayList<PlayerModel>
+    private val playersList: ArrayList<PlayerModel> = ArrayList<PlayerModel>()
 ) :
     RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder>(), CustomEventHandler,
     CardTouchHelperContract {
+    private var fileHelper: FileHelper = FileHelper(context)
+
+    init {
+        loadData(true)
+    }
+
+    fun saveData() {
+        Log.println(Log.DEBUG, "ALIF|DEBUG", playersList.toString())
+        fileHelper.saveData(playersList)
+    }
+
+    fun loadData(first: Boolean = false) {
+        playersList.clear()
+        playersList.addAll(fileHelper.loadData())
+        Log.println(Log.DEBUG, "ALIF|DEBUG", playersList.toString())
+        if (!first) {
+            notifyDataSetChanged()
+        }
+    }
 
     companion object {
         const val ACTION_DATA_SIZE_CHANGED = "ir.thealif.tennis.size_changed"

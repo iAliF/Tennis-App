@@ -19,20 +19,17 @@ import ir.thealif.tennis.R
 import ir.thealif.tennis.adapters.MyRecyclerViewAdapter
 import ir.thealif.tennis.callbacks.CardMoveCallback
 import ir.thealif.tennis.databinding.ActivityMainBinding
-import ir.thealif.tennis.models.PlayerModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var myAdapter: MyRecyclerViewAdapter
-    private var playersList: ArrayList<PlayerModel> = ArrayList()
     private lateinit var broadcastReceiver: BroadcastReceiver
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        loadData()
         setupViews()
     }
 
@@ -40,6 +37,11 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         registerService()
         checkPlayersCount()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        unregisterReceiver(broadcastReceiver)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -50,23 +52,21 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.mainMenuGithub -> openGithubRepo()
+            R.id.mainMenuSave -> myAdapter.saveData()
+            R.id.mainMenuLoad -> myAdapter.loadData()
         }
+
         return true
     }
 
-    override fun onStop() {
-        super.onStop()
-        unregisterReceiver(broadcastReceiver)
-    }
-
     private fun setupViews() {
-        myAdapter = MyRecyclerViewAdapter(this, playersList)
+        myAdapter = MyRecyclerViewAdapter(this)
+        binding.recyclerViewAdapter = myAdapter
 
         val callback = CardMoveCallback(myAdapter)
         val touchHelper = ItemTouchHelper(callback)
         touchHelper.attachToRecyclerView(binding.recyclerView)
 
-        binding.recyclerViewAdapter = myAdapter
 
         binding.fabAddPlayer.setOnClickListener {
             showAddDialog()
@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkPlayersCount() {
-        binding.tvNoPlayer.visibility = if (playersList.size > 0) View.GONE else View.VISIBLE
+        binding.tvNoPlayer.visibility = if (myAdapter.itemCount > 0) View.GONE else View.VISIBLE
     }
 
 
@@ -106,12 +106,6 @@ class MainActivity : AppCompatActivity() {
                 dialog.cancel()
             }
             .show()
-    }
-
-    private fun loadData() {
-        playersList.add(PlayerModel("John"))
-        playersList.add(PlayerModel("Jackson"))
-        playersList.add(PlayerModel("Brian"))
     }
 
     private fun openGithubRepo() {
