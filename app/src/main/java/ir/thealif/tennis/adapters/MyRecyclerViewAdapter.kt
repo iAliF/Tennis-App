@@ -122,6 +122,10 @@ class MyRecyclerViewAdapter(
                     true
                 }
             }
+
+            playerBinding.btnPlayerWin.setOnClickListener {
+                mCallback.onPlayerWin(playerBinding.model)
+            }
         }
     }
 
@@ -129,6 +133,11 @@ class MyRecyclerViewAdapter(
         when (item?.itemId) {
             R.id.menuRemovePlayer -> removePlayer(player)
         }
+    }
+
+    override fun onPlayerWin(playerModel: PlayerModel?) {
+        playerModel!!.wins++
+        notifyItemChanged(playersList.indexOf(playerModel))
     }
 
     override fun onRowMoved(fromPosition: Int, toPosition: Int) {

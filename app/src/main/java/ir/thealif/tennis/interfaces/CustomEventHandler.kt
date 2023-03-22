@@ -5,4 +5,5 @@ import ir.thealif.tennis.models.PlayerModel
 
 interface CustomEventHandler {
     fun onMenuItemClicked(item: MenuItem?, player: PlayerModel?)
+    fun onPlayerWin(playerModel: PlayerModel?)
 }

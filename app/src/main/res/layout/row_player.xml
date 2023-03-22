@@ -50,6 +50,29 @@
                 app:layout_constraintTop_toTopOf="@id/imgPlayer"
                 tools:text="John" />
 
+            <TextView
+                android:id="@+id/tvPlayerWins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/playerNamePadding"
+                android:text="@{model.winsString}"
+                app:layout_constraintBottom_toBottomOf="@id/btnPlayerWin"
+                app:layout_constraintEnd_toStartOf="@id/btnPlayerWin"
+                app:layout_constraintTop_toTopOf="@id/btnPlayerWin"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                tools:text="3" />
+
+            <ImageButton
+                android:id="@+id/btnPlayerWin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:contentDescription="@string/win"
+                android:src="@drawable/ic_add"
+                app:layout_constraintEnd_toStartOf="@id/btnPlayerOptions"
+                app:layout_constraintTop_toTopOf="@id/btnPlayerOptions"
+                app:tint="@color/optionsBtnColor" />
+
             <ImageButton
                 android:id="@+id/btnPlayerOptions"
                 android:layout_width="wrap_content"
