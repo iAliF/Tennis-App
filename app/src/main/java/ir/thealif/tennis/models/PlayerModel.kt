@@ -2,10 +2,8 @@ package ir.thealif.tennis.models
 
 import java.util.*
 
-data class PlayerModel(val name: String) {
+data class PlayerModel(val name: String, var wins: Int = 0) {
     var uuid: UUID = UUID.randomUUID()
-
-    var wins: Int = 0
 
     val winsString: String
         get() = wins.toString()
