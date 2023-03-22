@@ -98,9 +98,9 @@ class MyRecyclerViewAdapter(
 
     class ViewHolder(private val playerBinding: RowPlayerBinding) :
         RecyclerView.ViewHolder(playerBinding.root) {
-        private lateinit var myAdapter: MyRecyclerViewAdapter
-        fun bind(adapter: MyRecyclerViewAdapter, playerModel: PlayerModel) {
-            myAdapter = adapter
+        private lateinit var mCallback: CustomEventHandler
+        fun bind(callback: CustomEventHandler, playerModel: PlayerModel) {
+            mCallback = callback
             playerBinding.model = playerModel
             playerBinding.executePendingBindings()
             setupViews()
@@ -117,7 +117,7 @@ class MyRecyclerViewAdapter(
                 menu.show()
 
                 menu.setOnMenuItemClickListener { item ->
-                    myAdapter.onMenuItemClicked(item, playerBinding.model)
+                    mCallback.onMenuItemClicked(item, playerBinding.model)
                     true
                 }
             }
