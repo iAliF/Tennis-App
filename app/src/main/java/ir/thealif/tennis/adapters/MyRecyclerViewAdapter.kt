@@ -1,5 +1,6 @@
 package ir.thealif.tennis.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -57,6 +58,7 @@ class MyRecyclerViewAdapter(
         showToast(R.string.done)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun loadData(first: Boolean = false) {
         playersList.clear()
         playersList.addAll(fileHelper.loadData())
