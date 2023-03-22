@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="mainBackgroundColor">#FFFFFF</color>
+
     <color name="optionsBtnColor">#414141</color>
     <color name="cardBackgroundClear">@android:color/white</color>
     <color name="cardBackgroundSelected">@android:color/darker_gray</color>

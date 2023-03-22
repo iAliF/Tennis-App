@@ -2,6 +2,8 @@
 <resources>
     <color name="optionsBtnColor">#FFFFFF</color>
 
+    <color name="mainBackgroundColor">#0E0E0E</color>
+
     <color name="cardBackgroundClear">@color/purple_700</color>
     <color name="cardBackgroundSelected">@color/purple_500</color>
 </resources>
