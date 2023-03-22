@@ -132,11 +132,20 @@ class MyRecyclerViewAdapter(
     override fun onMenuItemClicked(item: MenuItem?, player: PlayerModel?) {
         when (item?.itemId) {
             R.id.menuRemovePlayer -> removePlayer(player)
+            R.id.menuResetPlayer -> resetPlayer(player)
         }
     }
 
+    private fun resetPlayer(playerModel: PlayerModel?) {
+        modifyPlayerWins(playerModel, 0)
+    }
+
     override fun onPlayerWin(playerModel: PlayerModel?) {
-        playerModel!!.wins++
+        modifyPlayerWins(playerModel, playerModel!!.wins + 1)
+    }
+
+    private fun modifyPlayerWins(playerModel: PlayerModel?, wins: Int) {
+        playerModel!!.wins = wins
         notifyItemChanged(playersList.indexOf(playerModel))
     }
 

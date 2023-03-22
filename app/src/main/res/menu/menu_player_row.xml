@@ -3,4 +3,8 @@
     <item
         android:id="@+id/menuRemovePlayer"
         android:title="@string/remove" />
+    <item
+        android:id="@+id/menuResetPlayer"
+        android:title="@string/reset"
+        />
 </menu>

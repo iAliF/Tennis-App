@@ -4,6 +4,7 @@
     <string name="add">Add</string>
     <string name="cancel">Cancel</string>
     <string name="remove">Remove</string>
+    <string name="reset">Reset</string>
 
     <string name="player_added">New player added!</string>
     <string name="player_removed">Player Removed</string>
@@ -14,6 +15,7 @@
 
     <string name="github">GitHub</string>
     <string name="github_repo_url">https://github.com/iAliF/Tennis-App</string>
+
     <string name="save">Save</string>
     <string name="load">Load</string>
     <string name="done">Done</string>
