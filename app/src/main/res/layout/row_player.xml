@@ -47,7 +47,7 @@
                 android:padding="@dimen/playerNamePadding"
                 tools:text="John" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btnPlayerOptions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -57,6 +57,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:background="@null"
                 app:tint="@color/optionsBtnColor" />
 
 
