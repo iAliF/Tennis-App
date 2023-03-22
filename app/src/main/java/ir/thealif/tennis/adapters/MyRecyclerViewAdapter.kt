@@ -30,18 +30,6 @@ class MyRecyclerViewAdapter(
         loadData(true)
     }
 
-    fun saveData() {
-        fileHelper.saveData(playersList)
-    }
-
-    fun loadData(first: Boolean = false) {
-        playersList.clear()
-        playersList.addAll(fileHelper.loadData())
-        if (!first) {
-            notifyDataSetChanged()
-        }
-    }
-
     companion object {
         const val ACTION_DATA_SIZE_CHANGED = "ir.thealif.tennis.size_changed"
     }
@@ -65,15 +53,16 @@ class MyRecyclerViewAdapter(
         holder.bind(this, playerModel)
     }
 
-    override fun onMenuItemClicked(item: MenuItem?, player: PlayerModel?) {
-        when (item?.itemId) {
-            R.id.menuRemovePlayer -> removePlayer(player)
-        }
+    fun saveData() {
+        fileHelper.saveData(playersList)
     }
 
-    private fun sendBroadcast() {
-        val intent = Intent(ACTION_DATA_SIZE_CHANGED)
-        context.sendBroadcast(intent)
+    fun loadData(first: Boolean = false) {
+        playersList.clear()
+        playersList.addAll(fileHelper.loadData())
+        if (!first) {
+            notifyDataSetChanged()
+        }
     }
 
     fun addPlayer(player: String) {
@@ -94,6 +83,12 @@ class MyRecyclerViewAdapter(
 
         Toast.makeText(context, R.string.player_removed, Toast.LENGTH_SHORT).show()
     }
+
+    private fun sendBroadcast() {
+        val intent = Intent(ACTION_DATA_SIZE_CHANGED)
+        context.sendBroadcast(intent)
+    }
+
 
     class ViewHolder(private val playerBinding: RowPlayerBinding) :
         RecyclerView.ViewHolder(playerBinding.root) {
@@ -120,6 +115,12 @@ class MyRecyclerViewAdapter(
                     true
                 }
             }
+        }
+    }
+
+    override fun onMenuItemClicked(item: MenuItem?, player: PlayerModel?) {
+        when (item?.itemId) {
+            R.id.menuRemovePlayer -> removePlayer(player)
         }
     }
 
