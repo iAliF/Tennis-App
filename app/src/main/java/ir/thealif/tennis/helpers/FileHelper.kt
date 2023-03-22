@@ -50,7 +50,7 @@ class FileHelper(private val context: Context) {
         val inStreamReader = InputStreamReader(fileInStream)
         val bufferedReader = BufferedReader(inStreamReader)
         val stringBuilder = StringBuilder()
-        var text: String? = null
+        var text: String?
         while (run {
                 text = bufferedReader.readLine()
                 text
