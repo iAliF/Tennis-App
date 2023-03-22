@@ -15,7 +15,9 @@ class FileHelper(private val context: Context) {
             val array = JSONArray()
 
             playerModels.forEach { model ->
-                array.put(model.name)
+                array.put(
+                    JSONArray().put(model.name).put(model.wins)
+                )
             }
 
             return array
@@ -26,8 +28,11 @@ class FileHelper(private val context: Context) {
 
             for (index in 0 until array.length()) {
                 val item = array[index]
-                if (item is String) {
-                    playersList.add(PlayerModel(item))
+                if (item is JSONArray && item.length() == 2) {
+                    val name = item[0]
+                    val wins = item[1]
+                    if (name is String && wins is Int)
+                        playersList.add(PlayerModel(name, wins))
                 }
             }
 
